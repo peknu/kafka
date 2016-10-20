@@ -43,3 +43,6 @@ Testing ZooKeeper (https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html
 cd /usr/local/zookeeper
 ./bin/zkCli.sh -server 127.0.0.1:2181
 help
+
+install Kafka: https://github.com/glynnbird/ansible-install-kafka/blob/master/tasks/install-kafka.yml
+Kafka quickstart: https://kafka.apache.org/quickstart

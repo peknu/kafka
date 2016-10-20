@@ -1,0 +1,30 @@
+---
+- name: Download Kafka {{ kafka_version }}
+  get_url:
+    url: 'http://apache.mirrors.spacedump.net/kafka/{{ kafka_version }}/kafka_{{ scala_main_version }}-{{ kafka_version }}.tgz'
+    dest: '/tmp/kafka-{{ kafka_version }}.tgz'
+    mode: 0644
+    force: no
+
+- name: Unpack Kafka tar file
+  unarchive:
+    src: '/tmp/kafka-{{ kafka_version }}.tgz'
+    dest: '/usr/local'
+    owner: vagrant
+    group: vagrant
+
+- name: Link /usr/local/kafka to this version
+  file:
+    src: '/usr/local//kafka_{{ scala_main_version }}-{{ kafka_version }}'
+    dest: '/usr/local/kafka'
+    state: link
+    owner: vagrant
+    group: vagrant
+
+- name: Start Kafka {{ kafka_version }}
+  shell: './bin/kafka-server-start.sh ./config/server.properties &'
+  args:
+    chdir: '/usr/local/kafka'
+    #creates: '/var/run/kafka/kafka.pid'
+  become_user: 'vagrant'
+...

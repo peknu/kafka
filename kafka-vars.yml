@@ -1,3 +1,5 @@
-sbt_version: 0.13.12
-scala_version: 2.11.8
-zookeeper_version: 3.4.9
+sbt_version: '0.13.12'
+scala_main_version: '2.11'
+scala_version: '{{ scala_main_version }}.8'
+zookeeper_version: '3.4.9'
+kafka_version: '0.10.0.1'

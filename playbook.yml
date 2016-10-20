@@ -13,4 +13,5 @@
     - role: scala
     - role: sbt
     - role: zookeeper
+    - role: kafka
 ...
