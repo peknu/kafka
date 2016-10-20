@@ -10,5 +10,6 @@
   roles:
     - role: common
     - role: jdk
+    - role: scala
     - role: sbt
 ...

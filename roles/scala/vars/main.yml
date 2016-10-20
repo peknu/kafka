@@ -1,0 +1,4 @@
+---
+scala_archive_file: 'scala-{{ scala_version }}.rpm'
+scala_download_url: 'http://downloads.lightbend.com/scala/{{ scala_version }}/{{ scala_archive_file }}'
+...

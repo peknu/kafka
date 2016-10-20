@@ -1,0 +1,11 @@
+---
+- name: Download scala version {{ scala_version }}
+  get_url:
+    url: '{{ scala_download_url }}'
+    dest: '/tmp/{{ scala_archive_file }}'
+
+- name: install Scala via RPM file with yum
+  yum:
+    name: '/tmp/{{ scala_archive_file }}'
+    state: present
+...
