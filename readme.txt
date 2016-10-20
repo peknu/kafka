@@ -29,6 +29,7 @@ File: C:\HashiCorp\Vagrant\embedded\gems\gems\vagrant-1.8.5\plugins\guests\linux
 Line 57: chmod 0600 ~/.ssh/authorized_keys
 
 Test access to the box using Python HTTP server:
+Vagrantfile: config.vm.network "forwarded_port", guest: 8000, host: 8000
 cd /vagrant
 python -m SimpleHTTPServer 8000
 
