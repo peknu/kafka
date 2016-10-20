@@ -27,3 +27,9 @@ Fix SSH access:
 https://github.com/mitchellh/vagrant/issues/7610
 File: C:\HashiCorp\Vagrant\embedded\gems\gems\vagrant-1.8.5\plugins\guests\linux\cap\public_key.rb
 Line 57: chmod 0600 ~/.ssh/authorized_keys
+
+Test access to the box using Python HTTP server:
+cd /vagrant
+python -m SimpleHTTPServer 8000
+
+http://192.168.33.10:8000/
