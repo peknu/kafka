@@ -1,0 +1,16 @@
+# Autodetect text files
+* text=auto
+
+*.bat text
+*.cfg eol=lf
+*.cmd text
+*.csv text
+*.json text
+*.md text
+*.properties text
+*.sh eol=lf
+*.txt text
+*.xml text
+*.xsd text
+
+

@@ -1,0 +1,59 @@
+---
+- name: Download Zookeeper {{ zookeeper_version }}
+  get_url:
+    url: 'http://mirror.ox.ac.uk/sites/rsync.apache.org/zookeeper/zookeeper-{{ zookeeper_version }}/zookeeper-{{ zookeeper_version }}.tar.gz'
+    dest: '/tmp/zookeeper-{{ zookeeper_version }}.tar.gz'
+    mode: 0644
+    force: no
+
+- name: Unpack the Zookeeper tar file
+  unarchive:
+    src: '/tmp/zookeeper-{{ zookeeper_version }}.tar.gz'
+    dest: '/usr/local'
+    owner: vagrant
+    group: vagrant
+
+- name: Copy configuration
+  copy:
+    src: 'zoo.cfg'
+    dest: '/usr/local/zookeeper-{{ zookeeper_version }}/conf/'
+    mode: 0644
+
+- name: Link /usr/local/zookeeper to this version
+  file:
+    src: '/usr/local/zookeeper-{{ zookeeper_version }}'
+    dest: '/usr/local/zookeeper'
+    state: link
+    owner: vagrant
+    group: vagrant
+
+#- name: Install the Zookeeper service handler
+#  copy:
+#    src: 'zookeeper.service'
+#    dest: '/etc/systemd/system/'
+#    mode: 0755
+
+- name: Create /usr/local/var directory
+  file:
+    path: '/var/zookeeper'
+    state: directory
+    owner: vagrant
+    group: vagrant
+    mode: 0777
+
+#- name: Run the Zookeeper service
+#  service:
+#    name: 'zookeeper'
+#    state: 'started'
+#    enabled: yes
+
+- name: Start Zookeeper
+  shell: './bin/zkServer.sh start &'
+  args:
+    chdir: '/usr/local/zookeeper'
+    creates: '/var/zookeeper/zookeeper_server.pid'
+  become_user: 'vagrant'
+
+- name: Wait for Zookeeper to startup
+  wait_for: port=2181 delay=2 timeout=30
+...

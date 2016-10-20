@@ -20,7 +20,7 @@ Create a java project with two spring boot modules, that should commúnicate wit
 8) Test how configuration works for topics, queues etc
 9) Document conclutions
 
-========================================================================================================================
+==============================================================================================================
 vagrant init centos-7-user-modified
 
 Fix SSH access:
@@ -37,3 +37,9 @@ python -m SimpleHTTPServer 8000
 http://192.168.33.10:8000/
 
 Install SBT using ansible: https://github.com/AnsibleShipyard/ansible-sbt/
+https://github.com/glynnbird/ansible-install-kafka/blob/master/install-kafka-playbook.yml
+
+Testing ZooKeeper (https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html#sc_ConnectingToZooKeeper)
+cd /usr/local/zookeeper
+./bin/zkCli.sh -server 127.0.0.1:2181
+help
