@@ -35,3 +35,5 @@ cd /vagrant
 python -m SimpleHTTPServer 8000
 
 http://192.168.33.10:8000/
+
+Install SBT using ansible: https://github.com/AnsibleShipyard/ansible-sbt/

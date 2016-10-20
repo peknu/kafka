@@ -4,9 +4,11 @@
   become: yes
   become_method: sudo
   gather_facts: yes
+  vars_files:
+    - kafka-vars.yml
 
   roles:
     - role: common
     - role: jdk
-
+    - role: sbt
 ...
