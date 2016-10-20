@@ -1,0 +1,12 @@
+---
+- name: Configure Linux 7 generic Java box with Apache Kafka demo
+  hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+
+  roles:
+    - role: common
+    - role: jdk
+
+...

@@ -27,6 +27,7 @@ Fix SSH access:
 https://github.com/mitchellh/vagrant/issues/7610
 File: C:\HashiCorp\Vagrant\embedded\gems\gems\vagrant-1.8.5\plugins\guests\linux\cap\public_key.rb
 Line 57: chmod 0600 ~/.ssh/authorized_keys
+Fixed in next version of Vagrant (1.8.7): https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md
 
 Test access to the box using Python HTTP server:
 Vagrantfile: config.vm.network "forwarded_port", guest: 8000, host: 8000
