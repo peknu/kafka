@@ -19,3 +19,11 @@ Create a java project with two spring boot modules, that should commúnicate wit
 7) Configure connunicayion channels for the Java applications
 8) Test how configuration works for topics, queues etc
 9) Document conclutions
+
+========================================================================================================================
+vagrant init centos-7-user-modified
+
+Fix SSH access:
+https://github.com/mitchellh/vagrant/issues/7610
+File: C:\HashiCorp\Vagrant\embedded\gems\gems\vagrant-1.8.5\plugins\guests\linux\cap\public_key.rb
+Line 57: chmod 0600 ~/.ssh/authorized_keys
