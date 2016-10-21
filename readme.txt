@@ -46,3 +46,16 @@ help
 
 install Kafka: https://github.com/glynnbird/ansible-install-kafka/blob/master/tasks/install-kafka.yml
 Kafka quickstart: https://kafka.apache.org/quickstart
+
+cd /usr/local/kafka
+1) Setup a topic:
+   - bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+2) List current tpoics:
+   - bin/kafka-topics.sh --list --zookeeper localhost:2181
+3) Start a console producer ans start to send some messages:
+   - bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+4) Start a console listener in another console:
+   - bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --zookeeper localhost:2181
+5) Start Spring boot demo application thats sends and reads messages from the topic:
+   - cd /vagrant
+   - mvn clean install

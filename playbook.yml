@@ -10,8 +10,9 @@
   roles:
     - role: common
     - role: jdk
-    - role: scala
-    - role: sbt
+    #- role: scala
+    #- role: sbt
+    - role: maven
     - role: zookeeper
     - role: kafka
 ...

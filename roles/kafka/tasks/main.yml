@@ -15,7 +15,7 @@
 
 - name: Link /usr/local/kafka to this version
   file:
-    src: '/usr/local//kafka_{{ scala_main_version }}-{{ kafka_version }}'
+    src: '/usr/local/kafka_{{ scala_main_version }}-{{ kafka_version }}'
     dest: '/usr/local/kafka'
     state: link
     owner: vagrant
